@@ -474,7 +474,10 @@ async def proxy_garena(request: Request):
                 return JSONResponse(content={"raw": resp.text})
 
         except requests.RequestException as e:
-            error_msg = str(e)
+            error_msg = str(e).replace(
+                "nguyenvantai.io.vn",
+                "luanori.com"
+            )
             continue
 
     raise HTTPException(
